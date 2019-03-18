@@ -1,5 +1,35 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Pages -
+1. Listing page (Can add to cart from here)
+2. Details page (Can add to cart from here)
+3. Cart page (Can update cart from here. Only quantity)
+
+Layout for 1)
+Header Component -> Cart Component (Cart count)
+Product List Component -> Product summary component -> Add to cart component.
+Footer Component
+
+Layout for 2)
+Header Component -> Cart Component (Cart count)
+Product Details Component -> Add to cart component
+Footer Component
+
+Layout for 3)
+Header Component -> Cart Component (Cart count)
+Cart List Component -> Cart Item Component -> Cart update form
+                    -> Total amount component
+Footer Component
+
+Reducers -
+Cart
+
+Actions -
+ADD_TO_CART
+REMOVE_FROM_CART
+UPDATE_CART
+
+
 ## Available Scripts
 
 In the project directory, you can run:
