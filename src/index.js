@@ -5,10 +5,11 @@ import { createStore } from 'redux';
 import reducers from './reducers';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Home from './components/Home';
-import ShoppingCart from './components/ShoppingCart';
+import Home from './components/pages/Home';
+import ShoppingCart from './components/pages/ShoppingCart';
 import Header from './components/views/Header';
-import Nav from './components/views/NavBar';
+import NavContainer from './components/containers/NavContainer';
+import Footer from './components/views/Footer';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap';
@@ -19,11 +20,12 @@ ReactDOM.render(
     <Router>
       <div className="App">
         <Header />
-        <Nav />
+        <NavContainer />
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/shopping-cart" component={ShoppingCart}/>
         </Switch>
+        <Footer />
       </div>
     </Router>
   </Provider>,
