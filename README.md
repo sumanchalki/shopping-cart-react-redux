@@ -3,23 +3,31 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Pages -
 1. Listing page (Can add to cart from here)
 2. Details page (Can add to cart from here)
-3. Cart page (Can update cart from here. Only quantity)
+3. Cart page (Can update cart from here. Only quantity can be updated)
 
-Layout for 1)
-Header Component -> Cart Component (Cart count)
-Product List Component -> Product summary component -> Add to cart component.
-Footer Component
+Component Structure for 1)
+Header
+NavContainer (Container) -> NavBar
+                         -> NavCartCount
+ProductList (Container) -> ProductListSummary
+                        -> ProductDetailSummary -> AddToCart
+                        -> Pagination (TODO)
+Footer
 
-Layout for 2)
-Header Component -> Cart Component (Cart count)
-Product Details Component -> Add to cart component
-Footer Component
+Component Structure for 2)
+Header
+NavContainer (Container) -> NavBar
+                         -> NavCartCount
+ProductDetails -> AddToCart
+Footer
 
-Layout for 3)
-Header Component -> Cart Component (Cart count)
-Cart List Component -> Cart Item Component -> Cart update form
-                    -> Total amount component
-Footer Component
+Component Structure for 3)
+Header
+NavContainer (Container) -> NavBar
+                         -> NavCartCount
+CartList (Container) -> CartItem -> CartUpdateForm
+                     -> CartTotal
+Footer
 
 Reducers -
 Cart

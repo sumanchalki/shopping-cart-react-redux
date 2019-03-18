@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './components/Home';
 import ShoppingCart from './components/ShoppingCart';
 import Header from './components/views/Header';
-import Nav from './components/views/Nav';
+import Nav from './components/views/NavBar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap';
@@ -16,7 +16,7 @@ import './index.css';
 
 ReactDOM.render(
   <Provider store={createStore(reducers, {})}>
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <Header />
         <Nav />
@@ -25,7 +25,7 @@ ReactDOM.render(
           <Route path="/shopping-cart" component={ShoppingCart}/>
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
