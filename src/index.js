@@ -16,6 +16,7 @@ import 'bootstrap/dist/js/bootstrap';
 import './index.css';
 
 ReactDOM.render(
+  /* TODO: <Provider store={createStore(reducers, initialState, applyMiddleWare())}> */
   <Provider store={createStore(reducers, {})}>
     <Router>
       <div className="App">
