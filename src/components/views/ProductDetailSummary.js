@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default (props) => {
   return(
-    <div className="col-6 col-sm-4" key={props.key}>
+    <div className="col-6 col-sm-4">
 
       <div className="product-box">
         <h3 className="prod-title"><Link to={"/product-detail/" + props.product.Id}>{props.product.Title}</Link></h3>

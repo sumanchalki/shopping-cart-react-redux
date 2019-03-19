@@ -7,7 +7,7 @@ export default class ProductList extends Component {
   render() {
     const productCount = this.props.products.length;
     const productListMarkup = this.props.products.map((product) => {
-      return <ProductDetailSummary product={product} key={product.id} />;
+      return <ProductDetailSummary product={product} key={product.Id} />;
     });
     return(
       <div className="container">
