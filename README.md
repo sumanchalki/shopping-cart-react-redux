@@ -18,7 +18,7 @@ Component Structure for 2)
 Header
 NavContainer (Container) -> NavBar
                          -> NavCartCount
-ProductDetails -> AddToCart
+ProductDetailsPage -> ProductDetails -> AddToCart
 Footer
 
 Component Structure for 3)

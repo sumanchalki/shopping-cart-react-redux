@@ -71,3 +71,10 @@ ul, ol {
   visibility: hidden;
   transition: .22s ease;
 }
+/* ************** End footer ******************/
+
+.logo {
+  float: left;
+  margin:20px 20px 20px 0;
+  width: 3em;
+}
