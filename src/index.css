@@ -75,6 +75,10 @@ ul, ol {
 
 .logo {
   float: left;
-  margin:20px 20px 20px 0;
+  margin: 20px 20px 20px 0;
   width: 3em;
+}
+
+.product-pagination {
+  margin: 20px;
 }

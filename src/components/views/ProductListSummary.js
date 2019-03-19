@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default () => {
+export default (props) => {
   return(
     <div>
-      <p>Showing 1-10 of 300 products.</p>
+      <p>Showing 1 - {props.productCount} of {props.productCount} products</p>
     </div>
   );
 }
