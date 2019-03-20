@@ -12,8 +12,11 @@ export default class ProductList extends Component {
     return(
       <div className="container">
         <h3 className="center">Product List</h3>
+
         <ProductListSummary productCount={productCount} />
-        {productListMarkup}
+        <div className="row">
+          {productListMarkup}
+        </div>
         <Pagination />
       </div>
     );
