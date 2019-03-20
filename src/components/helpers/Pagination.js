@@ -16,11 +16,23 @@ export default class Pagination extends Component {
   }
 
   generatePageMarkUp = () => {
-    const pageMarkUp1 = <li className="page-item"><a className="page-link" href="#">Previous</a></li>;
+    const pageMarkUp1 = (
+      <li className={(this.props.currentPage <= 1) ? 'page-item disabled' : 'page-item'}>
+        <a className="page-link" href="javascript:void(0);" onClick={this.props.handlePreviousPage}>Previous</a>
+      </li>
+    );
     const pageMarkUp2 = this.generatePageNumbers().map(number => {
-      return <li className="page-item"><a className="page-link" href="#">{number}</a></li>;
+      return (
+        <li key={number} className={(number == this.props.currentPage) ? 'page-item active' : 'page-item'}>
+          <a className="page-link" href="javascript:void(0);" onClick={() => this.props.handleThisPage(number)}>{number}</a>
+        </li>
+      );
     });
-    const pageMarkUp3 = <li className="page-item"><a className="page-link" href="#">Next</a></li>;
+    const pageMarkUp3 = (
+      <li className={((this.props.currentPage * this.props.perPage) >= this.props.totalProductCount) ? 'page-item disabled' : 'page-item'}>
+        <a className="page-link" href="javascript:void(0);" onClick={this.props.handleNextPage}>Next</a>
+      </li>
+    );
 
     return (
       <React.Fragment>

@@ -9,8 +9,9 @@ export default class ProductList extends Component {
     super(props);
     this.state = {
       currentPage: 1,
-      perPage: 23
+      perPage: 6
     };
+    // TODO: set instance level vars -> this.props.products.length, lastPage = Math.ceil(this.props.products.length / this.state.perPage)
   }
 
   getPagedData = () => {
@@ -19,11 +20,27 @@ export default class ProductList extends Component {
     return [currentPageItemStart, currentPageItemEnd];
   }
 
+  handleThisPage = (number) => {
+    this.setState({currentPage: number});
+  }
+
+  handlePreviousPage = () => {
+    if (this.state.currentPage > 0) {
+      this.setState({currentPage: (this.state.currentPage - 1)});
+    }
+  }
+
+  handleNextPage = () => {
+    const lastPage = Math.ceil(this.props.products.length / this.state.perPage);
+    if (this.state.currentPage < lastPage) {
+      this.setState({currentPage: (this.state.currentPage + 1)});
+    }
+  }
+
   render() {
     const totalProductCount = this.props.products.length;
     const [currentPageItemStart, currentPageItemEnd] = this.getPagedData();
     const currentPageProducts = this.props.products.slice(currentPageItemStart, currentPageItemEnd);
-    //const currentPageProductCount = currentPageProducts.length;
     const productListMarkup = currentPageProducts.map(product => {
       return <ProductDetailSummary product={product} key={product.Id} />;
     });
@@ -36,7 +53,7 @@ export default class ProductList extends Component {
         <div className="row">
           {productListMarkup}
         </div>
-        <Pagination currentPage={this.state.currentPage} perPage={this.state.perPage} totalProductCount={totalProductCount} />
+        <Pagination currentPage={this.state.currentPage} perPage={this.state.perPage} totalProductCount={totalProductCount} handlePreviousPage={this.handlePreviousPage} handleThisPage={this.handleThisPage} handleNextPage={this.handleNextPage} />
       </div>
     );
   }
