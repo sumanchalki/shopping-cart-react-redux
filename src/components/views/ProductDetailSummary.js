@@ -9,7 +9,11 @@ export default (props) => {
     <div className="col-6 col-sm-4">
 
       <div className="product-box card bg-light mb-3">
-        <div className="card-header"><h5 class="card-title"><Link to={"/product-detail/" + props.product.Id}>{props.product.Title}</Link></h5></div>
+        <div className="card-header">
+          <h5 className="card-title">
+            <Link to={"/product-detail/" + props.product.Id}>{props.product.Title}</Link>
+          </h5>
+        </div>
         <div className="card-body">
           <div className="text-center">
             <Link to={"/product-detail/" + props.product.Id}>

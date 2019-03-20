@@ -1,9 +1,14 @@
 import React from 'react';
 
 export default (props) => {
+  const start = props.currentPageItemStart + 1;
+  let end = props.currentPageItemEnd;
+  if (props.currentPageItemEnd > props.totalProductCount) {
+    end = props.totalProductCount;
+  }
   return(
     <div>
-      <p>Showing 1 - {props.productCount} of {props.productCount} products</p>
+      <p>Showing {start} - {end} of {props.totalProductCount} products</p>
     </div>
   );
 }
