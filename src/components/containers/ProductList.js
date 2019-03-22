@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import $ from "jquery";
+
 import ProductListSummary from '../views/ProductListSummary';
 import ProductDetailSummary from '../views/ProductDetailSummary';
-
 import Pagination from '../helpers/Pagination';
 
 export default class ProductList extends Component {
@@ -9,7 +10,7 @@ export default class ProductList extends Component {
     super(props);
     this.state = {
       currentPage: 1,
-      perPage: 6
+      perPage: 9
     };
     // TODO: set instance level vars -> this.props.products.length, lastPage = Math.ceil(this.props.products.length / this.state.perPage)
   }
@@ -22,11 +23,13 @@ export default class ProductList extends Component {
 
   handleThisPage = (number) => {
     this.setState({currentPage: number});
+    $("html, body").animate({ scrollTop: 0 }, 500);
   }
 
   handlePreviousPage = () => {
     if (this.state.currentPage > 0) {
       this.setState({currentPage: (this.state.currentPage - 1)});
+      $("html, body").animate({ scrollTop: 0 }, 500);
     }
   }
 
@@ -34,6 +37,7 @@ export default class ProductList extends Component {
     const lastPage = Math.ceil(this.props.products.length / this.state.perPage);
     if (this.state.currentPage < lastPage) {
       this.setState({currentPage: (this.state.currentPage + 1)});
+      $("html, body").animate({ scrollTop: 0 }, 500);
     }
   }
 

@@ -17,7 +17,7 @@ export default (props) => {
         <div className="card-body">
           <div className="text-center">
             <Link to={"/product-detail/" + props.product.Id}>
-              <img className="card-img-top" src={props.product.ImageUrl} />
+              <img className="card-img-top" alt={props.product.Title} src={props.product.ImageUrl} />
             </Link>
           </div>
           <p className="card-text description">
@@ -27,7 +27,7 @@ export default (props) => {
           <p className="card-text"><b>Made by:</b> {props.product.Manufacturer}</p>
           <p className="card-text"><b>Organic:</b> {props.product.Organic ? 'Yes' : 'No' }</p>
           <p className="card-text"><b>Price:</b> ${props.product.Price}</p>
-          <AddToCart />
+          <AddToCart product={props.product} />
         </div>
       </div>
 
