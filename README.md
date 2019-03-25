@@ -37,7 +37,6 @@ ADD_TO_CART
 REMOVE_FROM_CART
 UPDATE_CART
 
-
 ## Available Scripts
 
 In the project directory, you can run:

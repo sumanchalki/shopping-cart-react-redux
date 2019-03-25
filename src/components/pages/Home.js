@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { AddToCartContext } from '../contexts/AddToCartContext';
+import { AddToCartContext } from '../../contexts/AddToCartContext';
 import ProductList from '../containers/ProductList';
-import { fetchProducts } from '../middleware/fetchProducts';
+import { fetchProducts } from '../../lib/fetchProducts';
 
 class Home extends Component {
   constructor(props) {

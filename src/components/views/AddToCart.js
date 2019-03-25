@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { AddToCartContext } from '../contexts/AddToCartContext';
+import { AddToCartContext } from '../../contexts/AddToCartContext';
 
 export default class AddToCart extends Component {
   render() {
