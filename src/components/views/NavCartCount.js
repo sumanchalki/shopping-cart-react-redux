@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default () => {
+export default (props) => {
   return(
     <div>
-      <button type="button" className="btn btn-secondary">Cart (5)</button>
+      <button type="button" className="btn btn-secondary">Cart ({props.cart.length})</button>
     </div>
   );
 }
