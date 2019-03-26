@@ -20,7 +20,7 @@ class Home extends Component {
   render() {
     // Passing AddToCartContext as it might be used at any deep level child.
     return(
-      <AddToCartContext.Provider value={{action: actions.addToCartAction}}>
+      <AddToCartContext.Provider value={{action: this.props.addToCartAction}}>
         <div className="container main-container">
           <div className="box">
             <ProductList products={this.state.products} />

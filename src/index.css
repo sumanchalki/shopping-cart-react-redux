@@ -109,3 +109,15 @@ ul, ol {
 .product-box .card-title a:hover{
   text-decoration: none;
 }
+
+button#nav-view-cart-button {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+button#nav-view-cart-button.active {
+  border: 1px solid white;
+  background-color: #7e8891;
+}
