@@ -110,14 +110,14 @@ ul, ol {
   text-decoration: none;
 }
 
-button#nav-view-cart-button {
+#nav-view-cart-link {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
-button#nav-view-cart-button.active {
+#nav-view-cart-link.active {
   border: 1px solid white;
   /*background-color: #7e8891;*/
   color: #47e6ff;

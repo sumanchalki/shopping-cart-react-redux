@@ -5,8 +5,8 @@ import $ from 'jquery';
 export default class AddToCart extends Component {
   handleAddToCart = () => {
     $("html, body").animate({ scrollTop: 0 }, 300);
-    $("#nav-view-cart-button").addClass('active');
-    setTimeout(() => $("#nav-view-cart-button").removeClass('active'), 700);
+    $("#nav-view-cart-link").addClass('active');
+    setTimeout(() => $("#nav-view-cart-link").removeClass('active'), 700);
     this.context.action(this.props.product);
   }
   render() {
