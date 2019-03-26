@@ -119,5 +119,6 @@ button#nav-view-cart-button {
 
 button#nav-view-cart-button.active {
   border: 1px solid white;
-  background-color: #7e8891;
+  /*background-color: #7e8891;*/
+  color: #47e6ff;
 }
