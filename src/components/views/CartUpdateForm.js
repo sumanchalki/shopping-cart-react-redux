@@ -1,11 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default () => {
+export default (props) => {
   return(
     <div>
-      Update Cart
-      <input type="text" value="2"></input>
+      <input type="number" className="form-control" value={props.product.quantity}></input>
     </div>
   );
 }

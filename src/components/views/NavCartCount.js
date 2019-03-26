@@ -5,7 +5,7 @@ export default (props) => {
   return(
     <div>
       <Link id="nav-view-cart-link" to="/shopping-cart" className="btn btn-secondary">
-        Cart ({ props.cartCount })
+        Cart ({ props.cartItemCount })
       </Link>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { countCart } from '../../lib/cartLib';
 import NavBar from '../views/NavBar';
 import NavCartCount from '../views/NavCartCount';
 
@@ -9,15 +10,14 @@ class NavContainer extends Component {
     return(
       <nav className="navbar navbar-expand-md bg-dark navbar-dark">
         <NavBar />
-        <NavCartCount cartCount={this.props.cartCount} />
+        <NavCartCount cartItemCount={this.props.cartItemCount} />
       </nav>
     )
   }
 }
 
 const mapStateToProps = state => {
-  const cartCount = state.cart.map(item => item.quantity).reduce((total, num) => (total + num), 0);
-  return { cartCount }
+  return countCart(state);
 }
 
 export default connect(mapStateToProps)(NavContainer);
