@@ -16,7 +16,7 @@ class NavContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  const cartCount = state.map(item => item.quantity).reduce((total, num) => (total + num), 0);
+  const cartCount = state.cart.map(item => item.quantity).reduce((total, num) => (total + num), 0);
   return { cartCount }
 }
 

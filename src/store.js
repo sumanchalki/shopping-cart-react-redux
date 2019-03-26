@@ -1,4 +1,14 @@
 import { createStore } from 'redux';
-import cartReducer from './reducers/cartReducer';
+import rootReducer from './reducers';
+import { loadState, saveState } from './localStorage';
 
-export default createStore(cartReducer);
+const persistedState = loadState();
+const store = createStore(rootReducer, persistedState);
+
+store.subscribe(() => {
+  saveState({
+    cart: store.getState().cart
+  });
+});
+
+export default store;
