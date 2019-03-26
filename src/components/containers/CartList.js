@@ -9,21 +9,28 @@ export default (props) => {
   return(
     <div className="container">
       <h3 className="center">My Cart ({props.cartDetails.cartCount.cartItemCount}):</h3>
-      <form className="table-responsive">
-        <table className="table table-hover">
-          <thead className="thead-light">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cartItemsMarkUp}
-          </tbody>
-          <CartTotal cartCount={props.cartDetails.cartCount} />
-        </table>
+      <form>
+        <div className="table-responsive">
+          <table className="table table-hover">
+            <thead className="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItemsMarkUp}
+            </tbody>
+            <CartTotal cartCount={props.cartDetails.cartCount} />
+          </table>
+        </div>
+
+        <div className="row justify-content-end container-proceed-cart">
+          <div className="col-lg-2 col-md-3 col-sm-6 col-xs-8"><button type="button" className="btn btn-primary">Update Cart</button></div>
+          <div className="col-lg-2 col-md-2 col-sm-6 col-xs-8"><button type="button" className="btn btn-primary">Checkout</button></div>
+        </div>
       </form>
     </div>
   );
