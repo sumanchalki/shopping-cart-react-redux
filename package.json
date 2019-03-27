@@ -9,6 +9,7 @@
     "lodash.throttle": "^4.1.1",
     "popper.js": "^1.14.7",
     "react": "^16.8.4",
+    "react-confirm-alert": "^2.4.0",
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.4.0",
