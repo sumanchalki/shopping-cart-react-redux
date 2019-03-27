@@ -134,3 +134,7 @@ ul, ol {
 .container-proceed-cart button {
   margin-right: 10px;
 }
+
+.cart-empty {
+  margin: 80px auto;
+}

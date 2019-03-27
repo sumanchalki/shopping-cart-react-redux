@@ -3,15 +3,15 @@ import * as types from '../actions/action-types';
 const cartReducer = (state = [], action) => {
   switch (action.type) {
     case types.ADD_TO_CART:
-      let isItemExists = false; 
+      let doesItemExist = false;
       const newState = state.map((item) => {
         if (item.Id === action.payload.Id) {
           item.quantity += 1;
-          isItemExists = true;
+          doesItemExist = true;
         }
         return item;
       });
-      if (isItemExists) {
+      if (doesItemExist) {
         return newState;
       }
       return [...state, {...action.payload, quantity: 1}];
@@ -26,7 +26,28 @@ const cartReducer = (state = [], action) => {
       return newCartState;
 
     case types.UPDATE_CART:
-      return [...state, action.payload];
+      const cartFormArr = Object.keys(action.payload).map((key, index) => {
+        return action.payload[key];
+      });
+
+      doesItemExist = false;
+      console.log(cartFormArr);
+
+      const newProdCartState = state.map((item) => {
+        console.log(item);
+        let itemFound = cartFormArr.find((element) => element.Id === item.Id);
+        if (itemFound) {console.log(itemFound);
+          item.quantity = itemFound.quantity;
+          doesItemExist = true;
+        }
+        return item;
+      });
+
+      if (doesItemExist) {
+        return newProdCartState;
+      }
+
+      return state;
 
     default:
       return state;

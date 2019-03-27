@@ -10,7 +10,8 @@ class ShoppingCart extends Component {
     return(
       <div className="container main-container">
         <CartList cartDetails={{cart: this.props.cart, cartCount: this.props.cartCount}}
-          removeFromCart={this.props.removeFromCart} />
+          removeFromCart={this.props.removeFromCart}
+          handleUpdateCart={this.props.updateCart} />
       </div>
     )
   }
@@ -25,8 +26,9 @@ const mapDispatchToProps = dispatch => {
   return {
     removeFromCart: productId => dispatch(actions.removeFromCartAction(productId)),
 
-    updateCart: (e) => {
-      return dispatch(actions.updateCartAction(e.target.value));
+    updateCart: (e, cartForm) => {
+      e.preventDefault();
+      return dispatch(actions.updateCartAction(cartForm));
     },
   };
 }
