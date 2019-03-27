@@ -7,9 +7,16 @@ export function addToCartAction(product) {
   };
 }
 
-export function updateCartAction(cartValue) {
+export function removeFromCartAction(productId) {
+  return {
+    type: types.REMOVE_FROM_CART,
+    productId: productId
+  };
+}
+
+export function updateCartAction(payload) {
   return {
     type: types.UPDATE_CART,
-    payload: cartValue
+    payload
   };
 }

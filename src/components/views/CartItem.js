@@ -10,7 +10,9 @@ export default (props) => {
       <td>{ props.product.Title }</td>
       <td>${ props.product.Price }</td>
       <td>
-        <CartUpdateForm product={props.product} cartFormElement={props.cartFormElement}
+        <CartUpdateForm product={props.product}
+          cartFormElement={props.cartFormElement}
+          handleRemoveCartItem={props.handleRemoveCartItem}
           handleChangeCartQuantity={props.handleChangeCartQuantity} />
       </td>
     </tr>

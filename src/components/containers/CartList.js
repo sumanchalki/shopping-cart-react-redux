@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 //import { findDOMNode } from 'react-dom';
+import { confirmAlert } from 'react-confirm-alert';
 
 import CartItem from '../views/CartItem';
 import CartTotal from '../views/CartTotal';
 import $ from 'jquery';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 export default class CartList extends Component {
   constructor(props) {
@@ -24,6 +26,7 @@ export default class CartList extends Component {
     this.setState(cartForm);
   }
 
+  // Focus the clicked row.
   handleClickRow = (productId) => {
     //const el = findDOMNode(this.tableRef.current);
     $(this.tableRef.current).find('tr').each((i, el) => {
@@ -32,14 +35,36 @@ export default class CartList extends Component {
     $(this.tableRef.current).find('tr.row-' + productId).addClass('table-active');
   }
 
+  handleRemoveCartItem = (product) => {
+    /*const cartForm = Object.assign({}, this.state.cartForm);
+    delete cartForm[productId];
+    this.setState(cartForm);*/
+    confirmAlert({
+      title: 'Remove "' + product.Title + '"',
+      message: 'Are you sure want to remove this product from your cart?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.props.removeFromCart(product.Id)
+        },
+        {
+          label: 'No',
+          onClick: () => false
+        }
+      ]
+    });
+  }
+
   handleUpdateCart = (e) => {
     e.preventDefault();
   }
 
   render() {
     const cartItemsMarkUp = this.props.cartDetails.cart.map((product, index) =>
-      <CartItem product={product} key={product.Id} cartFormElement={this.state.cartForm[product.Id]}
+      <CartItem product={product} key={product.Id}
+        cartFormElement={this.state.cartForm[product.Id]}
         handleClickRow={this.handleClickRow}
+        handleRemoveCartItem={this.handleRemoveCartItem}
         counter={index + 1} handleChangeCartQuantity={this.handleChangeCartQuantity} />
     );
     return(
