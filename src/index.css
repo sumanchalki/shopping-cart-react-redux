@@ -126,3 +126,11 @@ ul, ol {
 .container-proceed-cart {
   margin-bottom: 30px;
 }
+
+.cart-form-input-group.input-group input{
+  margin-right: 10px;
+}
+
+.container-proceed-cart button {
+  margin-right: 10px;
+}
