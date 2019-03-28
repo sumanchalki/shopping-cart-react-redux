@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { countCart } from '../../lib/cartLib';
 import * as actions from '../../actions';
 import CartList from '../containers/CartList';
+import { highLightCartButton } from '../../lib/cartLib';
 
 class ShoppingCart extends Component {
   render() {
@@ -24,10 +25,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    removeFromCart: productId => dispatch(actions.removeFromCartAction(productId)),
+    removeFromCart: productId => {
+      highLightCartButton();
+      return dispatch(actions.removeFromCartAction(productId))
+    },
 
     updateCart: (e, cartForm) => {
       e.preventDefault();
+      highLightCartButton();
       return dispatch(actions.updateCartAction(cartForm));
     },
   };

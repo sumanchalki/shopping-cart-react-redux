@@ -22,9 +22,7 @@ class Home extends Component {
     return(
       <AddToCartContext.Provider value={{action: this.props.addToCartAction}}>
         <div className="container main-container">
-          <div className="box">
-            <ProductList products={this.state.products} />
-          </div>
+          <ProductList products={this.state.products} />
         </div>
       </AddToCartContext.Provider>
     );

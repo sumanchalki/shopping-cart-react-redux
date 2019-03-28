@@ -45,9 +45,9 @@ export default class ProductList extends Component {
     const totalProductCount = this.props.products.length;
     const [currentPageItemStart, currentPageItemEnd] = this.getPagedData();
     const currentPageProducts = this.props.products.slice(currentPageItemStart, currentPageItemEnd);
-    const productListMarkup = currentPageProducts.map(product => {
-      return <ProductDetailSummary product={product} key={product.Id} />;
-    });
+    const productListMarkup = currentPageProducts.map(product =>
+      <ProductDetailSummary product={product} key={product.Id} />
+    );
 
     return(
       <div className="container">

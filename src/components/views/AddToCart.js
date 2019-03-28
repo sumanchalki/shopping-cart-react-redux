@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import { AddToCartContext } from '../../contexts/AddToCartContext';
-import $ from 'jquery';
+import { highLightCartButton } from '../../lib/cartLib';
 
 export default class AddToCart extends Component {
   handleAddToCart = () => {
-    $("html, body").animate({ scrollTop: 0 }, 300);
-    $("#nav-view-cart-link").addClass('active');
-    setTimeout(() => $("#nav-view-cart-link").removeClass('active'), 700);
+    highLightCartButton();
     this.context.action(this.props.product);
   }
   render() {
