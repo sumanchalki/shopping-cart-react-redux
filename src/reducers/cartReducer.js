@@ -31,12 +31,10 @@ const cartReducer = (state = [], action) => {
       });
 
       doesItemExist = false;
-      console.log(cartFormArr);
 
       const newProdCartState = state.map((item) => {
-        console.log(item);
         let itemFound = cartFormArr.find((element) => element.Id === item.Id);
-        if (itemFound) {console.log(itemFound);
+        if (itemFound) {
           item.quantity = itemFound.quantity;
           doesItemExist = true;
         }
