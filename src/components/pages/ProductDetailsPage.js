@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as actions from '../../actions';
-import ProductDetails from '../views/ProductDetails';
+import ProductDetails from '../containers/ProductDetails';
 
 class ShoppingCart extends Component {
   render() {
