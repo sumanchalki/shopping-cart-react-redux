@@ -4,6 +4,7 @@ import rootReducer from './reducers';
 import { loadState, saveState } from './localStorage';
 
 const persistedState = loadState();
+/* TODO: const store = createStore(rootReducer, persistedState, applyMiddleWare()); */
 const store = createStore(rootReducer, persistedState);
 
 store.subscribe(
