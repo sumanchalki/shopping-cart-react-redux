@@ -5,7 +5,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.3.1",
+    "es5-shim": "^4.5.13",
+    "es6-shim": "^0.35.5",
+    "jquery": "^3.4.0",
     "lodash.throttle": "^4.1.1",
     "popper.js": "^1.14.7",
     "react": "^16.8.4",
@@ -13,7 +15,7 @@
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.4.0",
-    "react-scripts": "2.1.8",
+    "react-scripts": "3.0.0",
     "redux": "^4.0.1"
   },
   "scripts": {
@@ -30,5 +32,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "typescript": "^3.4.5"
+  }
 }
