@@ -7,14 +7,15 @@
     "bootstrap": "^4.3.1",
     "es5-shim": "^4.5.13",
     "es6-shim": "^0.35.5",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.4.0",
     "lodash.throttle": "^4.1.1",
-    "popper.js": "^1.14.7",
-    "react": "^16.8.4",
-    "react-confirm-alert": "^2.4.0",
-    "react-dom": "^16.8.4",
+    "popper.js": "^1.15.0",
+    "react": "^16.8.6",
+    "react-confirm-alert": "^2.4.1",
+    "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
-    "react-router-dom": "^4.4.0",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "redux": "^4.0.1"
   },
@@ -30,9 +31,9 @@
   "browserslist": [
     ">0.2%",
     "not dead",
-    "not ie <= 10",
+    "not ie <= 9",
     "not op_mini all",
-    "ie 11"
+    "ie 10"
   ],
   "devDependencies": {
     "typescript": "^3.4.5"

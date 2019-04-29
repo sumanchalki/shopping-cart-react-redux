@@ -1,3 +1,5 @@
+import 'isomorphic-fetch';
+
 export function fetchProducts() {
   return fetch("/data/ProductData.json")
     .then(handleErrors)
