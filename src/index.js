@@ -9,7 +9,6 @@ import 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap';
 import './index.css';
-alert(window.location.href);
 /*
  * BasePage is used to include Header, Footer etc.
  * With this we can skip header footer for any page to render directly.
