@@ -10,6 +10,10 @@ beforeEach(() => {
   wrapper = shallow(<CartItem product={productMock} />);
 });
 
+afterEach(() => {
+  wrapper.unmount();
+});
+
 it('displays the item title', () => {
   expect(wrapper.contains(productMock.Title)).toEqual(true);
 });

@@ -10,4 +10,6 @@ it('displays the total count and amount of cart', () => {
   expect(wrapper.text()).toContain(cartCountMock.cartTotal);
   // Check for cart total count.
   expect(wrapper.text()).toContain(cartCountMock.cartItemCount);
+
+  wrapper.unmount();
 });

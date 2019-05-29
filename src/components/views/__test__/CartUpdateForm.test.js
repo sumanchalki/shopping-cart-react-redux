@@ -11,6 +11,10 @@ beforeEach(() => {
   wrapper = render(<CartUpdateForm product={productMock} cartFormElement={cartFormElement} />);
 });
 
+afterEach(() => {
+  wrapper.unmount();
+});
+
 it('has an input type', () => {
   expect(wrapper.find('input').length).toEqual(1);
 });
