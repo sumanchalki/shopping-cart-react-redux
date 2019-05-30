@@ -12,7 +12,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  wrapper.unmount();
+  wrapper.remove();
 });
 
 it('has an input type', () => {

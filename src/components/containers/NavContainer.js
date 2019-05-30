@@ -17,7 +17,7 @@ class NavContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return countCart(state);
+  return countCart(state.cart);
 }
 
 export default connect(mapStateToProps)(NavContainer);

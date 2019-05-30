@@ -19,7 +19,7 @@ class ShoppingCart extends Component {
 }
 
 const mapStateToProps = state => {
-  const cartCount = countCart(state);
+  const cartCount = countCart(state.cart);
   return {cart: state.cart, cartCount}
 }
 

@@ -11,3 +11,24 @@ export const productMock = {
   "OrgPrice": 7,
   "Price": 7
 };
+
+export const cartMock = [
+  {
+    "Id": "1",
+    "Title": "Banana",
+    "Price": 7,
+    "quantity": 2
+  },
+  {
+    "Id": "3",
+    "Title": "Apple",
+    "Price": 6,
+    "quantity": 3
+  },
+  {
+    "Id": "19",
+    "Title": "Syrup",
+    "Price": 24,
+    "quantity": 1
+  }
+];
