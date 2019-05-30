@@ -30,20 +30,20 @@ export default () => {
             <div className="col-md-4 col-xl-3">
               <h5>Links</h5>
               <ul className="nav-list">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+                <li><a href="#pricing">Pricing</a></li>
               </ul>
             </div>
           </div>
         </div>
         <div className="row no-gutters social-container">
-          <div className="col"><a className="social-inner" href="#"><span className="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-          <div className="col"><a className="social-inner" href="#"><span className="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-          <div className="col"><a className="social-inner" href="#"><span className="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-          <div className="col"><a className="social-inner" href="#"><span className="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+          <div className="col"><a className="social-inner" href="#facebook"><span className="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+          <div className="col"><a className="social-inner" href="#instagram"><span className="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+          <div className="col"><a className="social-inner" href="#twitter"><span className="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+          <div className="col"><a className="social-inner" href="#google"><span className="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
         </div>
       </footer>
   );
