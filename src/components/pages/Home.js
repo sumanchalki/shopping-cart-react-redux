@@ -1,32 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import { AddToCartContext } from '../../contexts/AddToCartContext';
 import ProductList from '../containers/ProductList';
-import { fetchProducts } from '../../lib/fetchProducts';
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {products: []};
-  }
-
-  componentDidMount() {
-    fetchProducts().then(response => {
-      this.setState({products: response});
-    });
-  }
-
+export default class Home extends Component {
   render() {
-    // Passing AddToCartContext as it might be used at any deep level child.
     return(
-      <AddToCartContext.Provider value={{action: this.props.addToCartAction}}>
-        <div className="container main-container">
-          <ProductList products={this.state.products} />
-        </div>
-      </AddToCartContext.Provider>
+      <div className="container main-container">
+        <ProductList />
+      </div>
     );
   }
 }
-
-export default connect(null, actions)(Home);
