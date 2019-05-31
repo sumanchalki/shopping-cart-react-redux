@@ -1,27 +1,39 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+Layout Structure (ref. BasePage component) -
+<Header />
+<NavContainer />
+  {pageComponent}
+<Footer />
+
+
 Pages -
 1. Home / Product Listing page - (Home: Can add to cart from here)
 2. Product Details page (ProductDetailsPage: Can add to cart from here)
 3. Shopping Cart page (ShoppingCart: Can update cart from here. Only quantity can be updated)
 
-Component Structure for 1)
+
+Component Structure for 1.
 Header
 NavContainer (Container) -> NavBar
                          -> NavCartCount
 Home -> ProductList (Container) -> ProductListSummary
                                 -> ProductDetailSummary -> AddToCart
-                                -> Pagination (TODO)
+                                                        -> ReadMore
+                                -> Pagination
 Footer
 
-Component Structure for 2)
+
+Component Structure for 2.
 Header
 NavContainer (Container) -> NavBar
                          -> NavCartCount
-ProductDetailsPage -> ProductDetails -> AddToCart
+ProductDetailsPage -> ProductDetails (Container) -> AddToCart
 Footer
 
-Component Structure for 3)
+
+Component Structure for 3.
 Header
 NavContainer (Container) -> NavBar
                          -> NavCartCount
@@ -30,12 +42,13 @@ CartList (Container) -> CartItem -> CartUpdateForm
 Footer
 
 Reducers -
-Cart
+cartReducer
 
 Actions -
 ADD_TO_CART
 REMOVE_FROM_CART
 UPDATE_CART
+
 
 ## Available Scripts
 
