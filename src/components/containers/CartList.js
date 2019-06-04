@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 //import { findDOMNode } from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
-
-import CartItem from '../views/CartItem';
-import CartTotal from '../views/CartTotal';
+import { connect } from 'react-redux'
 import $ from 'jquery';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
-export default class CartList extends Component {
+import { countCart } from '../../lib/cartLib';
+import * as actions from '../../actions';
+import CartItem from '../views/CartItem';
+import CartTotal from '../views/CartTotal';
+import { highLightCartButton } from '../../lib/cartLib';
+
+class CartList extends Component {
   constructor(props) {
     super(props);
 
     const cartForm = {};
-    this.props.cartDetails.cart.map((product, index) =>
+    this.props.cart.map((product, index) =>
       cartForm[product.Id] = {Id: product.Id, quantity: product.quantity}
     );
     this.state = {cartForm};
@@ -53,7 +57,7 @@ export default class CartList extends Component {
   }
 
   render() {
-    const cartItemsMarkUp = this.props.cartDetails.cart.map((product, index) =>
+    const cartItemsMarkUp = this.props.cart.map((product, index) =>
       <CartItem product={product} key={product.Id}
         cartFormElement={this.state.cartForm[product.Id]}
         handleClickRow={this.handleClickRow}
@@ -62,10 +66,10 @@ export default class CartList extends Component {
     );
     return(
       <div className="container">
-        <h3 className="center">My Cart ({this.props.cartDetails.cartCount.cartItemCount}):</h3>
-        {this.props.cartDetails.cartCount.cartItemCount > 0
+        <h3 className="center">My Cart ({this.props.cartCount.cartItemCount}):</h3>
+        {this.props.cartCount.cartItemCount > 0
           ?
-          <form onSubmit={e => this.props.handleUpdateCart(e, this.state.cartForm)}>
+          <form id="cart-form" onSubmit={e => this.props.updateCart(e, this.state.cartForm)}>
             <div className="table-responsive">
               <table className="table table-hover" ref={this.tableRef}>
                 <thead className="thead-light">
@@ -79,7 +83,7 @@ export default class CartList extends Component {
                 <tbody>
                   {cartItemsMarkUp}
                 </tbody>
-                <CartTotal cartCount={this.props.cartDetails.cartCount} />
+                <CartTotal cartCount={this.props.cartCount} />
               </table>
             </div>
 
@@ -102,3 +106,25 @@ export default class CartList extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  const cartCount = countCart(state.cart);
+  return {cart: state.cart, cartCount}
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    removeFromCart: productId => {
+      highLightCartButton();
+      return dispatch(actions.removeFromCartAction(productId))
+    },
+
+    updateCart: (e, cartForm) => {
+      e.preventDefault();
+      highLightCartButton();
+      return dispatch(actions.updateCartAction(cartForm));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartList);

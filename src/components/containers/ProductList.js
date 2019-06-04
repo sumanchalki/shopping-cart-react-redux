@@ -62,7 +62,7 @@ class ProductList extends Component {
 
     // Passing AddToCartContext as it might be used at any deep level child.
     return(
-      <AddToCartContext.Provider value={{action: this.state.addToCartAction}}>
+      <AddToCartContext.Provider value={{action: this.props.addToCartAction}}>
         <div className="container">
           <h3 className="center">Product List</h3>
 
