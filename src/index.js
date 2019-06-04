@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
-import BasePage from './components/pages/BasePage';
-import store from './store';
 import 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap';
 import './index.css';
+
+import RootStoreProvider from './RootStoreProvider';
+import BasePage from './components/pages/BasePage';
+
 /*
  * BasePage is used to include Header, Footer etc.
  * With this we can skip header footer for any page to render directly.
  */
 ReactDOM.render(
-  <Provider store={store}>
+  <RootStoreProvider>
     <Router>
       <Switch>
         <Route exact path="/"
@@ -28,6 +28,6 @@ ReactDOM.render(
           render={routeProps => (<BasePage {...routeProps} pageName="PageNotFound" />)} />
       </Switch>
     </Router>
-  </Provider>,
+  </RootStoreProvider>,
   document.getElementById('root')
 );
