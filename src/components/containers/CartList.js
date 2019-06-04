@@ -66,7 +66,7 @@ class CartList extends Component {
     );
     return(
       <div className="container">
-        <h3 className="center">My Cart ({this.props.cartCount.cartItemCount}):</h3>
+        <h3 className="center my-cart">My Cart ({this.props.cartCount.cartItemCount}):</h3>
         {this.props.cartCount.cartItemCount > 0
           ?
           <form id="cart-form" onSubmit={e => this.props.updateCart(e, this.state.cartForm)}>

@@ -1,33 +1,25 @@
 import React from 'react';
 import { mount } from 'enzyme';
+
+import RootStoreProvider from '../../../RootStoreProvider';
 import CartList from '../CartList';
+import CartItem from '../../views/CartItem';
 import { cartMock } from '../../../lib/mocks';
-import { countCart } from '../../../lib/cartLib';
 
 let wrapper;
 
 beforeEach(() => {
-  wrapper = mount(<CartList cartDetails={{cart: cartMock, cartCount: countCart(cartMock)}} />);
+  wrapper = mount(
+    <RootStoreProvider initialState={{cart: cartMock}} env="test">
+      <CartList />
+    </RootStoreProvider>
+  );
 });
 
 afterEach(() => {
   wrapper.unmount();
 });
 
-it('has multiple CartItem components.', () => {
-  
-});
-
-describe('the cart form', () => {
-  it('displays the cart update form', () => {
-    
-  });
-
-  it('can update cart items', () => {
-    
-  });
-
-  it('can remove cart items', () => {
-    
-  });
+it('displays all the CartItem components.', () => {
+  expect(wrapper.find(CartItem).length).toEqual(cartMock.length);
 });

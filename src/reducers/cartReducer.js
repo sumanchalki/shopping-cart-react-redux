@@ -1,9 +1,10 @@
 import * as types from '../actions/action-types';
 
 const cartReducer = (state = [], action) => {
+  let doesItemExist;
   switch (action.type) {
     case types.ADD_TO_CART:
-      let doesItemExist = false;
+      doesItemExist = false;
       const newState = state.map((item) => {
         if (item.Id === action.payload.Id) {
           item.quantity += 1;
