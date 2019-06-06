@@ -11,5 +11,5 @@ it('displays the total count and amount of cart', () => {
   // Check for cart total count.
   expect(wrapper.text()).toContain(cartCountMock.cartItemCount);
 
-  wrapper.unmount();
+  wrapper.remove();
 });
