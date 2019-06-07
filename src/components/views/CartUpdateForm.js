@@ -7,7 +7,7 @@ export default (props) => {
         onChange={e => props.handleChangeCartQuantity(e, props.product.Id)}
         value={props.cartFormElement.quantity} />
 
-      <button type="button" className="btn btn-outline-danger"
+      <button type="button" className="btn btn-outline-danger btn-remove-cart"
         onClick={e => props.handleRemoveCartItem(props.product)}>X</button>
     </div>
   );

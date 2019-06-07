@@ -40,7 +40,7 @@ class CartList extends Component {
   }
 
   handleRemoveCartItem = (product) => {
-    confirmAlert({
+    /*confirmAlert({
       title: 'Remove "' + product.Title + '"',
       message: 'Are you sure want to remove this product from your cart?',
       buttons: [
@@ -53,6 +53,27 @@ class CartList extends Component {
           onClick: () => false
         }
       ]
+    });*/
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="react-confirm-alert-body">
+            <h1>Remove {product.Title}</h1>
+            <p>Are you sure want to remove this product from your cart?</p>
+            <div className="react-confirm-alert-button-group">
+              <button onClick={onClose}>No</button>
+              <button id="btn-confirm-delete-cart"
+                onClick={() => {
+                  this.props.removeFromCart(product.Id);
+                  onClose();
+                }}
+              >
+                Yes, Remove it!
+              </button>
+            </div>
+          </div>
+        );
+      }
     });
   }
 
