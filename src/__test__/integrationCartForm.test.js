@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { mount } from 'enzyme';
 import cloneDeep from 'lodash/cloneDeep';
 
@@ -25,7 +24,8 @@ afterEach(() => {
 });
 
 describe('the cart form', () => {
-  it('can update cart items', () => {
+  it('can update cart items - increase quantity', () => {
+    // Increase the first item quantity by 1.
     wrapper.find('input').first().simulate('change',
       {
         target:
@@ -41,10 +41,27 @@ describe('the cart form', () => {
       .toContain(countCart(cartMock).cartItemCount + 1);
   });
 
+  it('can update cart items - decrease quantity', () => {
+    // Decrease the second item quantity by 2.
+    wrapper.find('input').at(1).simulate('change',
+      {
+        target:
+        {
+          value: (cartMockClone[1].quantity - 2)
+        }
+      }
+    );
+    wrapper.find('form#cart-form').simulate('submit');
+    expect(wrapper.find('.container .my-cart').text())
+      .toContain(countCart(cartMock).cartItemCount - 2);
+  });
+
   it('can remove cart items', () => {
     // Click on the remove from cart button.
     wrapper.find('.btn-remove-cart').first().simulate('click');
     // jsdom does not parse noscript tag properly. To avoid error following code is added.
+    // Otherwise when we simulate click on confirm button it will throw error
+    // from 'react-confirm-alert' as the required noscript tag is not available.
     if (document.querySelectorAll('noscript.react-confirm-alert-blur').length === 0) {
       const noscript = document.createElement('noscript');
       noscript.classList.add('react-confirm-alert-blur');
