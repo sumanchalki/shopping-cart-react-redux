@@ -4,13 +4,13 @@ import { mount } from 'enzyme';
 import RootStoreProvider from '../../../RootStoreProvider';
 import CartList from '../CartList';
 import CartItem from '../../views/CartItem';
-import { cartMock } from '../../../lib/mocks';
+import { cartStub } from '../../../lib/stubs';
 
 let wrapper;
 
 beforeEach(() => {
   wrapper = mount(
-    <RootStoreProvider initialState={{cart: cartMock}} env="test">
+    <RootStoreProvider initialState={{cart: cartStub}} env="test">
       <CartList />
     </RootStoreProvider>
   );
@@ -21,5 +21,5 @@ afterEach(() => {
 });
 
 it('displays all the CartItem components.', () => {
-  expect(wrapper.find(CartItem).length).toEqual(cartMock.length);
+  expect(wrapper.find(CartItem).length).toEqual(cartStub.length);
 });

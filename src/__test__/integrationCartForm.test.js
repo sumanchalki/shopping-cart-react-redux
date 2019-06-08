@@ -4,16 +4,16 @@ import cloneDeep from 'lodash/cloneDeep';
 
 import RootStoreProvider from '../RootStoreProvider'
 import CartList from '../components/containers/CartList';
-import { cartMock } from '../lib/mocks';
+import { cartStub } from '../lib/stubs';
 import { countCart } from '../lib/cartLib';
 
 let wrapper;
-let cartMockClone;
+let cartStubClone;
 
 beforeEach(() => {
-  cartMockClone = cloneDeep(cartMock);
+  cartStubClone = cloneDeep(cartStub);
   wrapper = mount(
-    <RootStoreProvider initialState={{cart: cartMockClone}} env="test">
+    <RootStoreProvider initialState={{cart: cartStubClone}} env="test">
       <CartList />
     </RootStoreProvider>
   );
@@ -30,7 +30,7 @@ describe('the cart form', () => {
       {
         target:
         {
-          value: (cartMockClone[0].quantity + 1)
+          value: (cartStubClone[0].quantity + 1)
         }
       }
     );
@@ -38,7 +38,7 @@ describe('the cart form', () => {
     wrapper.find('form#cart-form').simulate('submit');
     //wrapper.update();
     expect(wrapper.find('.container .my-cart').text())
-      .toContain(countCart(cartMock).cartItemCount + 1);
+      .toContain(countCart(cartStub).cartItemCount + 1);
   });
 
   it('can update cart items - decrease quantity', () => {
@@ -47,14 +47,14 @@ describe('the cart form', () => {
       {
         target:
         {
-          value: (cartMockClone[1].quantity - 2)
+          value: (cartStubClone[1].quantity - 2)
         }
       }
     );
     // Submit cart form.
     wrapper.find('form#cart-form').simulate('submit');
     expect(wrapper.find('.container .my-cart').text())
-      .toContain(countCart(cartMock).cartItemCount - 2);
+      .toContain(countCart(cartStub).cartItemCount - 2);
   });
 
   it('can remove cart items', () => {
@@ -72,8 +72,8 @@ describe('the cart form', () => {
     document.querySelector('#btn-confirm-delete-cart').click();
 
     // Verify.
-    delete cartMockClone[0];
+    delete cartStubClone[0];
     expect(wrapper.find('.container .my-cart').text())
-      .toContain(countCart(cartMockClone).cartItemCount);
+      .toContain(countCart(cartStubClone).cartItemCount);
   });
 });

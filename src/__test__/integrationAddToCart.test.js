@@ -5,17 +5,17 @@ import cloneDeep from 'lodash/cloneDeep';
 import RootStoreProvider from '../RootStoreProvider';
 import ProductList from '../components/containers/ProductList';
 import ProductDetails from '../components/containers/ProductDetails';
-import { cartMock, productsMock } from '../lib/mocks';
+import { cartStub, productsStub } from '../lib/stubs';
 import { countCart } from '../lib/cartLib';
 
-let cartMockClone;
+let cartStubClone;
 let mockFetchPromise;
 
 beforeEach(() => {
-  cartMockClone = cloneDeep(cartMock);
+  cartStubClone = cloneDeep(cartStub);
   mockFetchPromise = Promise.resolve({
     ok: true,
-    json: () => Promise.resolve(productsMock)
+    json: () => Promise.resolve(productsStub)
   });
 
   jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
@@ -28,7 +28,7 @@ afterEach(() => {
 
 it('can add to cart from homepage', (done) => {
   const wrapper = mount(
-    <RootStoreProvider initialState={{cart: cartMockClone}} env="test">
+    <RootStoreProvider initialState={{cart: cartStubClone}} env="test">
       <ProductList />
     </RootStoreProvider>
   );
@@ -41,7 +41,7 @@ it('can add to cart from homepage', (done) => {
     wrapper.find('.add-cart-container button').first().simulate('click');
 
     expect(countCart(wrapper.props().initialState.cart).cartItemCount)
-      .toEqual(countCart(cartMock).cartItemCount + 1);
+      .toEqual(countCart(cartStub).cartItemCount + 1);
 
     wrapper.unmount();
     done();
@@ -50,8 +50,8 @@ it('can add to cart from homepage', (done) => {
 
 it('can add to cart from product details page', (done) => {
   const wrapper = mount(
-    <RootStoreProvider initialState={{cart: cartMockClone}} env="test">
-      <ProductDetails productId={productsMock.Products[0].Id} />
+    <RootStoreProvider initialState={{cart: cartStubClone}} env="test">
+      <ProductDetails productId={productsStub.Products[0].Id} />
     </RootStoreProvider>
   );
 
@@ -63,10 +63,8 @@ it('can add to cart from product details page', (done) => {
     wrapper.find('.add-cart-container button').first().simulate('click');
 
     expect(countCart(wrapper.props().initialState.cart).cartItemCount)
-      .toEqual(countCart(cartMock).cartItemCount + 1);
+      .toEqual(countCart(cartStub).cartItemCount + 1);
 
-    // Clear the mock.
-    global.fetch.mockClear();
     wrapper.unmount();
     done();
   });

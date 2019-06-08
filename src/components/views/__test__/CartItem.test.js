@@ -2,12 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import CartItem from '../CartItem';
 import CartUpdateForm from '../CartUpdateForm';
-import { productMock } from '../../../lib/mocks';
+import { productsStub } from '../../../lib/stubs';
 
 let wrapper;
+const productStub = productsStub.Products[0];
 
 beforeEach(() => {
-  wrapper = shallow(<CartItem product={productMock} />);
+  wrapper = shallow(<CartItem product={productStub} />);
 });
 
 afterEach(() => {
@@ -15,11 +16,11 @@ afterEach(() => {
 });
 
 it('displays the item title', () => {
-  expect(wrapper.contains(productMock.Title)).toEqual(true);
+  expect(wrapper.contains(productStub.Title)).toEqual(true);
 });
 
 it('displays the item price', () => {
-  expect(wrapper.contains(productMock.Price)).toEqual(true);
+  expect(wrapper.contains(productStub.Price)).toEqual(true);
 });
 
 it('displays the cart update form', () => {
