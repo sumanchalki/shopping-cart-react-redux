@@ -51,6 +51,7 @@ describe('the cart form', () => {
         }
       }
     );
+    // Submit cart form.
     wrapper.find('form#cart-form').simulate('submit');
     expect(wrapper.find('.container .my-cart').text())
       .toContain(countCart(cartMock).cartItemCount - 2);
