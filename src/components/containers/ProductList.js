@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { AddToCartContext } from '../../contexts/AddToCartContext';
 import * as actions from '../../actions';
-import { fetchProducts } from '../../lib/fetchProducts';
 import ProductListSummary from '../views/ProductListSummary';
 import ProductDetailSummary from '../views/ProductDetailSummary';
 import Pagination from '../helpers/Pagination';
@@ -17,13 +16,11 @@ class ProductList extends Component {
       currentPage: 1,
       perPage: 9
     };
-    // TODO: set instance level vars -> this.state.products.length, lastPage = Math.ceil(this.state.products.length / this.state.perPage)
+    // TODO: set instance level vars -> this.props.products.length, lastPage = Math.ceil(this.props.products.length / this.state.perPage)
   }
 
-  componentDidMount() {
-    fetchProducts().then(response => {
-      this.setState({products: response});
-    });
+  componentWillMount() {
+    this.props.getProducts();
   }
 
   getPagedData = () => {
@@ -45,7 +42,7 @@ class ProductList extends Component {
   }
 
   handleNextPage = () => {
-    const lastPage = Math.ceil(this.state.products.length / this.state.perPage);
+    const lastPage = Math.ceil(this.props.products.length / this.state.perPage);
     if (this.state.currentPage < lastPage) {
       this.setState({currentPage: (this.state.currentPage + 1)});
       $("html, body").animate({ scrollTop: 0 }, 500);
@@ -53,9 +50,9 @@ class ProductList extends Component {
   }
 
   render() {
-    const totalProductCount = this.state.products.length;
+    const totalProductCount = this.props.products.length;
     const [currentPageItemStart, currentPageItemEnd] = this.getPagedData();
-    const currentPageProducts = this.state.products.slice(currentPageItemStart, currentPageItemEnd);
+    const currentPageProducts = this.props.products.slice(currentPageItemStart, currentPageItemEnd);
     const productListMarkup = currentPageProducts.map(product =>
       <ProductDetailSummary product={product} key={product.Id} />
     );
@@ -77,4 +74,13 @@ class ProductList extends Component {
   }
 }
 
-export default connect(null, actions)(ProductList);
+const mapStateToProps = state => {
+  if(Object.keys(state.products).length === 0 && state.products.constructor === Object) {
+    return {products: []};
+  }
+  else {
+    return {products: state.products.allProducts};
+  }
+}
+
+export default connect(mapStateToProps, actions)(ProductList);

@@ -1,4 +1,5 @@
 import * as types from './action-types';
+import { fetchProducts, fetchProductDetails } from '../lib/fetchProducts';
 
 export function addToCartAction(product) {
   return {
@@ -18,5 +19,19 @@ export function updateCartAction(payload) {
   return {
     type: types.UPDATE_CART,
     payload
+  };
+}
+
+export function getProducts(payload) {
+  return {
+    type: types.FETCH_PRODUCTS,
+    payload: fetchProducts()
+  };
+}
+
+export function getProductDetails(productId) {
+  return {
+    type: types.FETCH_PRODUCT_DETAILS,
+    payload: fetchProductDetails(productId)
   };
 }
