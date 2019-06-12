@@ -75,7 +75,7 @@ class ProductList extends Component {
 }
 
 const mapStateToProps = state => {
-  if(Object.keys(state.products).length === 0 && state.products.constructor === Object) {
+  if(typeof state.products.allProducts === 'undefined') {
     return {products: []};
   }
   else {

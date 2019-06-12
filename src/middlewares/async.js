@@ -1,4 +1,4 @@
-export default function({ dispatch }) {
+export default function({ dispatch, getState }) {
   return next => action => {
     // If the payload does not have a .then property send it on.
     if (!action.payload || !action.payload.then) {
