@@ -1,20 +1,24 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<h4>Layout Structure (ref. BasePage component) -</h4>
 
-Layout Structure (ref. BasePage component) -
+```
 <Header />
 <NavContainer />
   {pageComponent}
 <Footer />
+```
 
+<h4>Pages -</h4>
+<ol>
+  <li>Home / Product Listing page - (Home: Can add to cart from here)</li>
+  <li>Product Details page (ProductDetailsPage: Can add to cart from here)</li>
+  <li>Shopping Cart page (ShoppingCart: Can update cart from here. Only quantity can be updated)</li>
+</ol>
 
-Pages -
-1. Home / Product Listing page - (Home: Can add to cart from here)
-2. Product Details page (ProductDetailsPage: Can add to cart from here)
-3. Shopping Cart page (ShoppingCart: Can update cart from here. Only quantity can be updated)
+<h4>Component Structure for 1.</h4>
 
-
-Component Structure for 1.
+```
 Header
 NavContainer (Container) -> NavBar
                          -> NavCartCount
@@ -23,32 +27,40 @@ Home -> ProductList (Container) -> ProductListSummary
                                                         -> ReadMore
                                 -> Pagination
 Footer
+```
 
+<h4>Component Structure for 2.</h4>
 
-Component Structure for 2.
+```
 Header
 NavContainer (Container) -> NavBar
                          -> NavCartCount
 ProductDetailsPage -> ProductDetails (Container) -> AddToCart
 Footer
+```
 
+<h4>Component Structure for 3.</h4>
 
-Component Structure for 3.
+```
 Header
 NavContainer (Container) -> NavBar
                          -> NavCartCount
 CartList (Container) -> CartItem -> CartUpdateForm
                      -> CartTotal
 Footer
+```
 
-Reducers -
-cartReducer
+<h4>Reducers -</h4>
+<ol>
+  <li>cartReducer</li>
+</ol>
 
-Actions -
-ADD_TO_CART
-REMOVE_FROM_CART
-UPDATE_CART
-
+<h4>Actions -</h4>
+<ol>
+  <li>ADD_TO_CART</li>
+  <li>REMOVE_FROM_CART</li>
+  <li>UPDATE_CART</li>
+</ol>
 
 ## Available Scripts
 
